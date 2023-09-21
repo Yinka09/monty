@@ -23,7 +23,7 @@ void pint_func(stack_t **stack, unsigned int line_number)
 
 	if (!head)
 	{
-		fprintf(stderr, PINT_FAILED, line_number);
+		dprintf(STDERR_FILENO, PINT_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -42,7 +42,7 @@ void pop_func(stack_t **stack, unsigned int line_number)
 
 	if (!temp)
 	{
-		fprintf(stderr, POP_FAILED, line_number);
+		dprintf(STDERR_FILENO, POP_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -62,7 +62,7 @@ void swap_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, SWAP_FAILED, line_number);
+		dprintf(STDERR_FILENO, SWAP_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -73,7 +73,7 @@ void swap_func(stack_t **stack, unsigned int line_number)
 	node = insert_index_node_int(stack, 1, number);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -93,7 +93,7 @@ void add_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, ADD_FAILED, line_number);
+		dprintf(STDERR_FILENO, ADD_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -104,7 +104,7 @@ void add_func(stack_t **stack, unsigned int line_number)
 	node = add_node_int(stack, total);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}

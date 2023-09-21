@@ -15,7 +15,7 @@ void sub_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, SUB_FAILED, line_number);
+		dprintf(STDERR_FILENO, SUB_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -26,7 +26,7 @@ void sub_func(stack_t **stack, unsigned int line_number)
 	node = add_node_int(stack, subtract);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -46,7 +46,7 @@ void mul_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, MUL_FAILED, line_number);
+		dprintf(STDERR_FILENO, MUL_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -57,7 +57,7 @@ void mul_func(stack_t **stack, unsigned int line_number)
 	node = add_node_int(stack, multiply);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -77,14 +77,14 @@ void div_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, DIV_FAILED, line_number);
+		dprintf(STDERR_FILENO, DIV_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node0->n == 0)
 	{
-		fprintf(stderr, DIV_ZERO_ERR, line_number);
+		dprintf(STDERR_FILENO, DIV_ZERO_ERR, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -95,7 +95,7 @@ void div_func(stack_t **stack, unsigned int line_number)
 	node = add_node_int(stack, division);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -117,14 +117,14 @@ void mod_func(stack_t **stack, unsigned int line_number)
 
 	if (linkedlist_len(*stack) < 2)
 	{
-		fprintf(stderr, MOD_FAILED, line_number);
+		dprintf(STDERR_FILENO, MOD_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node0->n == 0)
 	{
-		fprintf(stderr, DIV_ZERO_ERR, line_number);
+		dprintf(STDERR_FILENO, DIV_ZERO_ERR, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -135,7 +135,7 @@ void mod_func(stack_t **stack, unsigned int line_number)
 	node = add_node_int(stack, modulus);
 	if (!node)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}

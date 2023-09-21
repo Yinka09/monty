@@ -38,14 +38,14 @@ void pchar_func(stack_t **stack, unsigned int line_number)
 
 	if (!node)
 	{
-		fprintf(stderr, PCHAR_FAILED, line_number);
+		dprintf(STDERR_FILENO, PCHAR_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node->n < 0 || node->n > 127)
 	{
-		fprintf(stderr, PCHAR_RANGE_ERR, line_number);
+		dprintf(STDERR_FILENO, PCHAR_RANGE_ERR, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}

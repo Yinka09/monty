@@ -13,25 +13,25 @@ data_t data = DATA_INIT;
  */
 void monty_func(arg_t *args)
 {
-	size_t length = 0;
 	int read = 0;
+	size_t length = 0;
 	void (*func_for_code)(stack_t **, unsigned int);
 
 	if (args->ac != 2)
 	{
-		fprintf(stderr, USAGE_ERR);
+		dprintf(STDERR_FILENO, USAGE_ERR);
 		exit(EXIT_FAILURE);
 	}
 	data.fptr = fopen(args->av, "r");
 	if (!data.fptr)
 	{
-		fprintf(stderr, FILE_ERR, args->av);
+		dprintf(STDERR_FILENO, FILE_ERR, args->av);
 		exit(EXIT_FAILURE);
 	}
 	while (1)
 	{
 		args->line_number++;
-		read = _getline(&(data.line), &length, data.fptr);
+		read = getline(&(data.line), &length, data.fptr);
 		if (read < 0)
 			break;
 		data.str = strtow(data.line);
@@ -43,7 +43,7 @@ void monty_func(arg_t *args)
 		func_for_code = selec_func(data.str);
 		if (!func_for_code)
 		{
-			fprintf(stderr, UNKNOWN_ERR, args->line_number, data.str[0]);
+			dprintf(STDERR_FILENO, UNKNOWN_ERR, args->line_number, data.str[0]);
 			free_all_data(1);
 			exit(EXIT_FAILURE);
 		}

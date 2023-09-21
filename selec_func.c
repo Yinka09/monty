@@ -25,7 +25,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 
 	if (data.str[1] == NULL)
 	{
-		fprintf(stderr, PUSH_FAILED, line_number);
+		dprintf(STDERR_FILENO, PUSH_FAILED, line_number);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
@@ -34,7 +34,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 	{
 		if (isalpha(data.str[1][fig]) != 0)
 		{
-			fprintf(stderr, PUSH_FAILED, line_number);
+			dprintf(STDERR_FILENO, PUSH_FAILED, line_number);
 			free_all_data(1);
 			exit(EXIT_FAILURE);
 		}
@@ -47,7 +47,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 		new = add_node_int_end(stack, number);
 	if (!new)
 	{
-		fprintf(stderr, MALLOC_FAILED);
+		dprintf(STDERR_FILENO, MALLOC_FAILED);
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
