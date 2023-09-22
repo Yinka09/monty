@@ -77,7 +77,6 @@ void swap_func(stack_t **stack, unsigned int line_number)
 		free_all_data(1);
 		exit(EXIT_FAILURE);
 	}
-	free(temp);
 }
 
 /**
